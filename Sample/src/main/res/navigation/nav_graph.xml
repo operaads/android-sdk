@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.opera.ads.demo.fragment.MainFragment"
+        android:label="MainFragment">
+
+        <action
+            android:id="@+id/action_main_to_native"
+            app:destination="@id/fragmentNative" />
+
+        <action
+            android:id="@+id/action_main_to_banner"
+            app:destination="@id/fragmentBanner" />
+
+        <action
+            android:id="@+id/action_main_to_interstitial"
+            app:destination="@id/fragmentInterstitial" />
+
+        <action
+            android:id="@+id/action_main_to_rewarded"
+            app:destination="@id/fragmentRewarded" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentNative"
+        android:name="com.opera.ads.demo.fragment.NativeFragment"
+        android:label="Native" />
+
+    <fragment
+        android:id="@+id/fragmentBanner"
+        android:name="com.opera.ads.demo.fragment.BannerFragment"
+        android:label="Banner" />
+
+    <fragment
+        android:id="@+id/fragmentInterstitial"
+        android:name="com.opera.ads.demo.fragment.InterstitialFragment"
+        android:label="Interstitial" />
+
+    <fragment
+        android:id="@+id/fragmentRewarded"
+        android:name="com.opera.ads.demo.fragment.RewardedFragment"
+        android:label="Rewarded" />
+</navigation>
