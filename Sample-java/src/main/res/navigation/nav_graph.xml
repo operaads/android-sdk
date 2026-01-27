@@ -24,25 +24,43 @@
         <action
             android:id="@+id/action_main_to_rewarded"
             app:destination="@id/fragmentRewarded" />
+
+        <action
+            android:id="@+id/action_main_to_rewarded_interstitial"
+            app:destination="@id/fragmentRewardedInterstitial" />
+
+        <action
+            android:id="@+id/action_main_to_app_open"
+            app:destination="@id/fragmentAppOpen" />
     </fragment>
 
     <fragment
         android:id="@+id/fragmentNative"
         android:name="com.opera.ads.demo.fragment.NativeFragment"
-        android:label="Native" />
+        android:label="@string/native_ad_format" />
 
     <fragment
         android:id="@+id/fragmentBanner"
         android:name="com.opera.ads.demo.fragment.BannerFragment"
-        android:label="Banner" />
+        android:label="@string/banner_ad_format" />
 
     <fragment
         android:id="@+id/fragmentInterstitial"
         android:name="com.opera.ads.demo.fragment.InterstitialFragment"
-        android:label="Interstitial" />
+        android:label="@string/interstitial_ad_format" />
 
     <fragment
         android:id="@+id/fragmentRewarded"
         android:name="com.opera.ads.demo.fragment.RewardedFragment"
-        android:label="Rewarded" />
+        android:label="@string/rewarded_ad_format" />
+
+    <fragment
+        android:id="@+id/fragmentRewardedInterstitial"
+        android:name="com.opera.ads.demo.fragment.RewardedInterstitialFragment"
+        android:label="@string/rewarded_interstitial_ad_format" />
+
+    <fragment
+        android:id="@+id/fragmentAppOpen"
+        android:name="com.opera.ads.demo.fragment.AppOpenFragment"
+        android:label="@string/app_open_ad_format" />
 </navigation>

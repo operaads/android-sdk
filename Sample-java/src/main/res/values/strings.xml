@@ -5,8 +5,14 @@
     <string name="banner_ad_format">Banner</string>
     <string name="interstitial_ad_format">Interstitial</string>
     <string name="rewarded_ad_format">Rewarded</string>
+    <string name="rewarded_interstitial_ad_format">RewardedInterstitial</string>
+    <string name="app_open_ad_format">AppOpen</string>
     <string name="load_ad">Load</string>
     <string name="show_ad">Show</string>
     <string name="destroy_ad">Destroy</string>
     <string name="ad_type_video">Video</string>
+    <string name="ad_muted_title">Video muted</string>
+    <string name="ad_muted_default">default</string>
+    <string name="ad_muted_yes">yes</string>
+    <string name="ad_muted_no">no</string>
 </resources>

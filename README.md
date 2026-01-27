@@ -14,6 +14,8 @@ Opera Ads SDK supports the following ad formats:
 - **Banner**: Banner ads in various sizes
 - **Interstitial**: Full-screen interstitial ads
 - **Rewarded**: Users receive rewards after watching
+- **RewardedInterstitial**: Unlike rewarded ads, users aren't required to opt in to view a rewarded interstitial.
+- **AppOpen**: Can be closed at any time, and are designed to be shown when your users bring your app to the foreground.
 
 ## Getting Started with Opera Ads
 

@@ -113,6 +113,8 @@ public class MainFragment extends Fragment {
         items.add(new MainItem("Banner", Constant.getPlacementId(AdFormat.BANNER, false)));
         items.add(new MainItem("Interstitial", Constant.getPlacementId(AdFormat.INTERSTITIAL, false)));
         items.add(new MainItem("Rewarded", Constant.getPlacementId(AdFormat.REWARDED, false)));
+        items.add(new MainItem("RewardedInterstitial", Constant.getPlacementId(AdFormat.REWARDED_INTERSTITIAL, false)));
+        items.add(new MainItem("AppOpen", Constant.getPlacementId(AdFormat.APP_OPEN, false)));
         MainRecyclerAdapter adapter = getMainRecyclerAdapter(items);
         recyclerView.setAdapter(adapter);
     }
@@ -135,6 +137,12 @@ public class MainFragment extends Fragment {
                     break;
                 case "Rewarded":
                     destination = R.id.action_main_to_rewarded;
+                    break;
+                case "RewardedInterstitial":
+                    destination = R.id.action_main_to_rewarded_interstitial;
+                    break;
+                case "AppOpen":
+                    destination = R.id.action_main_to_app_open;
                     break;
                 default:
                     break;

@@ -5,20 +5,15 @@ import androidx.annotation.Nullable;
 
 import com.opera.ads.AdError;
 import com.opera.ads.AdFormat;
+import com.opera.ads.appopen.AppOpenAd;
+import com.opera.ads.appopen.AppOpenAdInteractionListener;
+import com.opera.ads.appopen.AppOpenAdLoadListener;
 import com.opera.ads.demo.R;
-import com.opera.ads.interstitial.InterstitialAd;
-import com.opera.ads.interstitial.InterstitialAdInteractionListener;
-import com.opera.ads.interstitial.InterstitialAdLoadListener;
 
-public class InterstitialFragment extends BaseFragment {
+public class AppOpenFragment extends BaseFragment {
 
     @Nullable
-    private InterstitialAd mInterstitialAd;
-
-    @Override
-    protected boolean hasVideoTypeOption() {
-        return true;
-    }
+    private AppOpenAd mAppOpenAd;
 
     @Override
     protected boolean supportsMutedControl() {
@@ -28,22 +23,22 @@ public class InterstitialFragment extends BaseFragment {
     @NonNull
     @Override
     protected AdFormat getAdFormat() {
-        return AdFormat.INTERSTITIAL;
+        return AdFormat.APP_OPEN;
     }
 
     @Override
     protected int getAdFormatStringId() {
-        return R.string.interstitial_ad_format;
+        return R.string.app_open_ad_format;
     }
 
     @Override
     protected void loadAd() {
         assert mPlacementId != null;
         mLogView.print("Loading ...");
-        InterstitialAd.load(getContext(), mPlacementId, new InterstitialAdLoadListener() {
+        AppOpenAd.load(getContext(), mPlacementId, new AppOpenAdLoadListener() {
             @Override
-            public void onAdLoaded(@NonNull InterstitialAd ad) {
-                mInterstitialAd = ad;
+            public void onAdLoaded(@NonNull AppOpenAd ad) {
+                mAppOpenAd = ad;
                 mLogView.print("Loaded");
                 enableShowAd();
                 enableDestroyAd();
@@ -58,13 +53,13 @@ public class InterstitialFragment extends BaseFragment {
 
     @Override
     protected void showAd() {
-        if (mInterstitialAd != null) {
-            if (mInterstitialAd.isAdInvalidated()) {
+        if (mAppOpenAd != null) {
+            if (mAppOpenAd.isAdInvalidated()) {
                 mLogView.print("Ad is invalidated.");
                 destroyAd();
                 return;
             }
-            mInterstitialAd.show(requireActivity(), new InterstitialAdInteractionListener() {
+            mAppOpenAd.show(requireActivity(), new AppOpenAdInteractionListener() {
                 @Override
                 public void onAdClicked() {
                     mLogView.print("Clicked!");
@@ -94,8 +89,8 @@ public class InterstitialFragment extends BaseFragment {
     @Override
     protected void destroyAd() {
         super.destroyAd();
-        mInterstitialAd.destroy();
-        mInterstitialAd = null;
+        mAppOpenAd.destroy();
+        mAppOpenAd = null;
         disableDestroyAd();
         disableShowAd();
     }

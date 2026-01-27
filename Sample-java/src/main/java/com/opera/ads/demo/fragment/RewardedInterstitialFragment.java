@@ -8,14 +8,14 @@ import com.opera.ads.AdFormat;
 import com.opera.ads.RewardItem;
 import com.opera.ads.RewardSsvOptions;
 import com.opera.ads.demo.R;
-import com.opera.ads.rewarded.RewardedAd;
-import com.opera.ads.rewarded.RewardedAdInteractionListener;
-import com.opera.ads.rewarded.RewardedAdLoadListener;
+import com.opera.ads.rewardedinterstitial.RewardedInterstitialAd;
+import com.opera.ads.rewardedinterstitial.RewardedInterstitialAdInteractionListener;
+import com.opera.ads.rewardedinterstitial.RewardedInterstitialAdLoadListener;
 
-public class RewardedFragment extends BaseFragment {
+public class RewardedInterstitialFragment extends BaseFragment {
 
     @Nullable
-    private RewardedAd mRewardedAd;
+    private RewardedInterstitialAd mRewardedInterstitialAd;
 
     @Override
     protected boolean supportsMutedControl() {
@@ -25,22 +25,22 @@ public class RewardedFragment extends BaseFragment {
     @NonNull
     @Override
     protected AdFormat getAdFormat() {
-        return AdFormat.REWARDED;
+        return AdFormat.REWARDED_INTERSTITIAL;
     }
 
     @Override
     protected int getAdFormatStringId() {
-        return R.string.rewarded_ad_format;
+        return R.string.rewarded_interstitial_ad_format;
     }
 
     @Override
     protected void loadAd() {
         assert mPlacementId != null;
         mLogView.print("Loading ...");
-        RewardedAd.load(getContext(), mPlacementId, new RewardedAdLoadListener() {
+        RewardedInterstitialAd.load(getContext(), mPlacementId, new RewardedInterstitialAdLoadListener() {
             @Override
-            public void onAdLoaded(@NonNull RewardedAd ad) {
-                mRewardedAd = ad;
+            public void onAdLoaded(@NonNull RewardedInterstitialAd ad) {
+                mRewardedInterstitialAd = ad;
                 mLogView.print("Loaded");
                 enableShowAd();
                 enableDestroyAd();
@@ -55,22 +55,22 @@ public class RewardedFragment extends BaseFragment {
 
     @Override
     protected void showAd() {
-        if (mRewardedAd != null) {
-            if (mRewardedAd.isAdInvalidated()) {
+        if (mRewardedInterstitialAd != null) {
+            if (mRewardedInterstitialAd.isAdInvalidated()) {
                 mLogView.print("Ad is invalidated.");
                 destroyAd();
                 return;
             }
             // Set scene ID and SSV options(if any) when S2S callback is set for Opera placement id.
             // scene id: max length 100 bytes after url encoded, or will be discarded.
-            mRewardedAd.setSceneId("Demo scene #1");
-            mRewardedAd.setRewardSsvOptions(new RewardSsvOptions.Builder()
+            mRewardedInterstitialAd.setSceneId("Demo scene #2");
+            mRewardedInterstitialAd.setRewardSsvOptions(new RewardSsvOptions.Builder()
                     // user id: max length 100 bytes after url encoded, or will be discarded.
                     .userId("Demo user id %:{测试?}")
                     // custom data: max length 1KB after url encoded, or will be discarded.
-                    .customData("Demo user custom data %:{测试?}#1")
+                    .customData("Demo user custom data %:{测试?}#2")
                     .build());
-            mRewardedAd.show(requireActivity(), new RewardedAdInteractionListener() {
+            mRewardedInterstitialAd.show(requireActivity(), new RewardedInterstitialAdInteractionListener() {
                 @Override
                 public void onAdClicked() {
                     mLogView.print("Clicked!");
@@ -105,8 +105,8 @@ public class RewardedFragment extends BaseFragment {
     @Override
     protected void destroyAd() {
         super.destroyAd();
-        mRewardedAd.destroy();
-        mRewardedAd = null;
+        mRewardedInterstitialAd.destroy();
+        mRewardedInterstitialAd = null;
         disableDestroyAd();
         disableShowAd();
     }

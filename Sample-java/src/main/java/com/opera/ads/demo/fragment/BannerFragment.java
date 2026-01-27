@@ -18,7 +18,12 @@ public class BannerFragment extends BaseFragment {
     private BannerAdView mBannerAdView;
 
     @Override
-    protected boolean hasVideo() {
+    protected boolean hasVideoTypeOption() {
+        return true;
+    }
+
+    @Override
+    protected boolean supportsMutedControl() {
         return true;
     }
 
