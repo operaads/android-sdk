@@ -4,7 +4,7 @@ Opera Ads SDK is an advertising SDK for Android applications, supporting multipl
 
 ## Project Overview
 
-The [Sample](https://github.com/operaads/android-sdk/tree/master/Sample) project is a sample project demonstrating how to integrate Opera Ads SDK in your own project.
+The sample projects demonstrate how to integrate Opera Ads SDK in your own project in java or kotlin.
 
 ## Core Features
 
